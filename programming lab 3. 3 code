@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int F()
+{
+    return 1;
+}
+int F(int x)
+{
+    return x;
+}
+int F(int x, int y)
+{
+    return x * y;
+}
+int F2(int a = 1, int b = 1)
+{
+    return a * b;
+}
+int main()
+{
+    cout << F() << endl;
+    cout << F(3) << endl;
+    cout << F(4, 6) << endl;
+    cout << F2() <<  endl;
+    cout << F2(3) << endl;
+    cout << F2(6, 2) << endl;
+    return 0;
+}
+    
