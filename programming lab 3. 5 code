@@ -1,0 +1,46 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int y(int x, int n)
+{
+    int i, j, sum;
+    float s, mlt;
+    sum = 0;
+    mlt = 1;
+    s = 0;
+    
+    if (x <= 0)
+    {
+        for (i = 2; i <= n - 1; i++)
+        {
+            sum += (x / i);
+        }
+        sum = sum;
+        cout << sum;
+    }
+    else if (x > 0)
+    {
+        for (i = 1; i <= n - 1; i++)
+        {
+            for (j =0; j <= i; j++)
+            {
+                s += (i / (j + x));
+            }
+            mlt *= s;
+        }
+        cout << mlt;
+    }
+    return 0;
+}
+
+int main()
+{
+    int x, n;
+    cout << "Enter x:";
+    cin >> x;
+    cout << "Enter n, n > 1:";
+    cin >> n;
+    y(x, n);
+    return 0;
+}
