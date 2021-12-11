@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+void dectobinary(int n)
+{
+    int BinaryNum[45];
+    int i = 0;
+    while (n > 0)
+    {
+        BinaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--)
+      cout << BinaryNum[j];
+}
+int main()
+{
+    unsigned short int Number;
+    cout << "Enter any Number in [0, 23, 467] range:";
+    cin >> Number;
+    dectobinary(Number);
+    
+    return 0;
+    
+}
