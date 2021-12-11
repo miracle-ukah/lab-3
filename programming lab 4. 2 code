@@ -1,0 +1,35 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+double getmax(double array[], int length)
+{
+    double max_val = *max_element(array, array + length);
+    return max_val;
+}
+double getmin(double array[], int length)
+{
+    double min_val = *min_element(array, array + length);
+    return min_val;
+}
+
+int main()
+{
+    const int length = 4;
+    double array[length] = {7.03, -43.3, -34.3, 248.36};
+    cout << "array: ";
+    
+    for (int i = 0; i < 4; i++)
+    {
+        cout << array[i] << " / ";
+    }
+    cout << endl;
+    
+    double maxx = getmax(array, length);
+    double minn = getmin(array, length);
+    
+    cout << "max: " << maxx << endl;
+    cout << "min: " << minn << endl;
+    cout << "max + min = " << maxx + minn << endl;
+    }
