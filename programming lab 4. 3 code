@@ -1,0 +1,61 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int rowinput, colinput;
+    cout << "Enter number of columns wanted:" << endl;
+    cin >> colinput;
+    cout << "Enter number of Rows wanted:" << endl;
+    cin >> rowinput;
+    
+    static int row = rowinput;
+    static int col = colinput;
+    
+    int arr[row][col];
+    int arr1[row];
+    
+    int x, y, sum;
+    sum = 0;
+    cout << "\nArray Input:\n";
+    for (x = 0; x < row; x++)
+    {
+        for (y = 0;y < col; y++)
+        {
+            cout << "\narr[" << x << "][" << y << "]= ";
+            cin >> arr[x][y];
+        }
+    }
+    
+    cout << "\nThe array is:\n";
+    for (x = 0; x < row; x++)
+    {
+        for (y = 0; y < col; y++)
+        {
+            cout << "\t" << arr[x][y];
+        }
+        cout << endl;
+    }
+    cout << endl;
+    
+    for (x = 0; x < row; x++)
+    {
+        for (y = 0; y < col; y++)
+        {
+            sum = sum + arr[x][y];
+        }
+        cout << "sum of the Row " 
+        << x << " = " << sum 
+        << endl;
+        arr1[x] = {sum};
+        sum = 0;
+        cout << endl;
+    }
+    
+    cout << "\nThe new array is:\n";
+    for (x = 0; x < row; x++)
+    {
+        cout << "\t" << arr1[x];
+    }
+}
