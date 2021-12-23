@@ -1,0 +1,82 @@
+#include "pch.h"
+#include "CppUnitTest.h"
+#include "c:\Users\slysj\desktop\school\software engineering department\year 1 1st semester\lab 5\lab 5 code.cpp"
+
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+namespace UnitTest1
+{
+    TEST_CLASS(calculate_Tests)
+    {
+    public:    
+        TEST_METHOD(calculate_get3and4_19point475returned)
+        {
+            int n = 3;
+            double x = 4;
+            double expected = 19.475;
+            
+            double actual = calculate(n, x);
+            
+            Assert::AreEqual(expected, actual);
+        }
+    public:
+        TEST_METHOD(calculate_get3andnegative4_14returned)
+        {
+            int n = 3;
+            double x = -4;
+            double expected = 14;
+            
+            double actual = calculate(n, x);
+            
+            Assert::AreEqual(expected, actual);
+            
+        }
+    public:
+        TEST_METHOD(calculate_get6andnegative3_19returned)
+        {
+            int n = 6;
+            double x = -3;
+            double expected = 19;
+            
+            double actual = calculate(n, x);
+            
+            Assert::AreEqual(expected, actual);
+            
+        }
+    };
+    
+    TEST_CLASS(checkValidParams_Tests)
+    {
+    public:    
+        TEST_METHOD(checkValid_Params_get10_exceptionNotThrown)
+        {
+            int n = 10;
+            
+            try
+            {
+                checkValidParams(n);
+                Assert::IsTrue(true);
+            }
+            catch (...)
+            {
+                Assert::Fail();
+            }
+        }
+    public:
+        TEST_METHOD(checkValid_Params_get4_exceptionNotThrown)
+        {
+            int n = 4;
+            
+            try
+            {
+                checkValidParams(n);
+                Assert::IsTrue(true);
+            }
+            catch (...)
+            {
+                Assert::Fail();
+            }
+        }
+    };
+    
+}
