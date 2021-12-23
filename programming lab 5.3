@@ -1,0 +1,158 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+struct Link
+{
+    double data;
+    Link* next;
+};
+
+double* readFromFile(const char* Numbers, int& count)
+{
+    Link* first = 0;
+    Link* last = 0;
+    Link* link;
+    ifstream in(Numbers);
+    double d;
+    count = 0;
+    while (in >> d)
+    {
+        count++;
+        link = new Link;
+        link->data = d;
+        link->next = 0;
+        if (last == 0)
+        {
+            first = last = link;
+        }
+        else
+        {
+            last->next = link;
+        }
+        last = link;
+    }
+    double* arr = new double[count];
+    link = first;
+    for (int i = 0; i < count; i++)
+    {
+        arr[i] = link->data;
+        link = link->next;
+    }
+    while (first)
+    {
+        link = first;
+        first = first->next;
+        delete link;
+    }
+    return arr;
+}
+
+void  outToFile(const char* filename, int** a, int m, int n)
+{
+    ofstream out;
+    out.open("results.txt");
+    if (out)
+    {
+        out << "Source array:" << endl;
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                out << '\t' << a[i][j];
+            }
+            out << endl;
+        }
+        for (int i = 0; i < m; i++) //step one
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (a[i][j] % 2 == 0)
+                {
+                    a[i][j] = a[i][j] * 3;
+                }
+            }
+        }
+        out << "Step One(All items with even values should be tripled): " << endl;
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                out << '\t' << a[i][j];
+            }
+            out << endl;
+        }
+        out << endl;
+        double b[3]; // step two
+        for (int i = 0; i < m; i++)
+        {
+            static int r = 0, c = 0;
+            b[i] = a[r][c];
+            r++;
+            c++;
+        }
+        out << "Step Two(Cubic roots of diagonal items):" << endl;
+        for (int i = 0; i < m; i++)
+        {
+            double ptr = b[i];
+            
+            out << '\t' << std::
+            cbrt(ptr);
+        }
+    }
+    else
+    {
+        cout << "ERROR!\n";
+    }
+}
+
+int main()
+{
+    const int n = 3;
+    int count = 0;
+    double* arr = readFromFile("Numbers.txt", count); //to read the integers in the text file
+
+    ifstream in("Numbers.txt"); // to calculate the number of rows
+    int x, r = 0;
+    while (in >> x)
+    {
+        r++;
+    }
+    int m = r / n;
+
+    int** a = new int* [m]; //creation of a 2d array in free store
+    for (int i = 0; i < m; i++)
+    {
+        a[i] = new int[n];
+    }
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            a[i][j] << (i + j);
+        }
+    }
+
+    for (int i = 0; i < m; i++) //filling the 2d array with the integers from the txt file
+    {
+        for (int j = 0; j < n; j++)
+        {
+            static int g = 0;
+            a[i][j] = arr[g];
+            g++;
+        }
+    }
+
+    outToFile("results.txt", a, m, n); //storing results in a new file
+
+    delete[] arr; //removing all arrays created in free store
+    for (int i = 0; i < m; i++)
+    {
+        delete[] a[i];
+    }
+    delete[] a;
+    return 0;
+}
