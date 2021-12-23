@@ -1,82 +1,107 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "c:\Users\slysj\desktop\school\software engineering department\year 1 1st semester\lab 5\lab 5 code.cpp"
+#include "C:\Users\slysj\Desktop\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest1
 {
-    TEST_CLASS(calculate_Tests)
-    {
-    public:    
-        TEST_METHOD(calculate_get3and4_19point475returned)
-        {
-            int n = 3;
-            double x = 4;
-            double expected = 19.475;
-            
-            double actual = calculate(n, x);
-            
-            Assert::AreEqual(expected, actual);
-        }
-    public:
-        TEST_METHOD(calculate_get3andnegative4_14returned)
-        {
-            int n = 3;
-            double x = -4;
-            double expected = 14;
-            
-            double actual = calculate(n, x);
-            
-            Assert::AreEqual(expected, actual);
-            
-        }
-    public:
-        TEST_METHOD(calculate_get6andnegative3_19returned)
-        {
-            int n = 6;
-            double x = -3;
-            double expected = 19;
-            
-            double actual = calculate(n, x);
-            
-            Assert::AreEqual(expected, actual);
-            
-        }
-    };
-    
-    TEST_CLASS(checkValidParams_Tests)
-    {
-    public:    
-        TEST_METHOD(checkValid_Params_get10_exceptionNotThrown)
-        {
-            int n = 10;
-            
-            try
-            {
-                checkValidParams(n);
-                Assert::IsTrue(true);
-            }
-            catch (...)
-            {
-                Assert::Fail();
-            }
-        }
-    public:
-        TEST_METHOD(checkValid_Params_get4_exceptionNotThrown)
-        {
-            int n = 4;
-            
-            try
-            {
-                checkValidParams(n);
-                Assert::IsTrue(true);
-            }
-            catch (...)
-            {
-                Assert::Fail();
-            }
-        }
-    };
-    
+	TEST_CLASS(calculate_Tests)
+	{
+	public:
+		TEST_METHOD(calculate_get2and4_0point45returned)
+		{
+			int n = 2;
+			double x = 4;
+			double expected = 0.45;
+
+			double actual = calculate(n, x);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+
+	public:
+		TEST_METHOD(calculate_get6andnegative2_negative2point9returned)
+		{
+			int n = 6;
+			double x = -2;
+			int expected = -2.56667;
+
+			int actual = calculate(n, x);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+	public:
+		TEST_METHOD(calculate_get5and9_3point82032returned)
+		{
+			int n = 5;
+			double x = 9;
+			int expected = 3.82032;
+
+			int actual = calculate(n, x);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+	public:
+		TEST_METHOD(calculate_get12and4_80point1542returned)
+		{
+			int n = 12;
+			double x = 4;
+			int expected = 80.1542;
+
+			int actual = calculate(n, x);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+	public:
+		TEST_METHOD(calculate_get4and0_0returned)
+		{
+			int n = 4;
+			double x = 0;
+			double expected = 0;
+
+			double actual = calculate(n, x);
+
+			Assert::AreEqual(expected, actual);
+
+		}
+	};
+
+	TEST_CLASS(checkValidParams_Tests)
+	{
+	public:
+		TEST_METHOD(checkValidParams_get10_exceptionNotThrown)
+		{
+			int n = 5;
+
+			try
+			{
+				CheckValidParams(n);
+				Assert::IsTrue(true);
+			}
+			catch (...)
+			{
+				Assert::Fail();
+			}
+		}
+	public:
+		TEST_METHOD(checkValid_Params_get4_exceptionNotThrown)
+		{
+			int n = 4;
+
+			try
+			{
+				CheckValidParams(n);
+				Assert::IsTrue(true);
+			}
+			catch (...)
+			{
+				Assert::Fail();
+			}
+		}
+	};
 }
