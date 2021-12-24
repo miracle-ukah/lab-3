@@ -1,0 +1,49 @@
+#include <iostream>
+#include "Header.h"
+#include <math.h>
+
+using namespace std;
+
+double test(int x, int n)
+{
+    return pow(x, 2) + x + n;
+}
+double y(int x, int n)
+{
+    double y = 1;
+    if (x <= 0)
+    {
+        for (double i = 2; j <= (n - 1); i++)
+        {
+            y += (x - i) / i;
+        }
+    }
+    else
+    {
+        for (int i = 0; i <= (n - 1); i++)
+        {
+            double m = 0;
+            for (int j = 0; j <= i; j++)
+            {
+                m += (i + 1) / (j + x);
+            }
+            y *= m;
+        }
+    }
+    return y;
+}
+int main()
+{
+    double Begin, End, Interval, x;
+    cout << "Enter the beginning " << ;
+    std:: cin >> Begin ;
+    cout << "Enter the end " << ;
+    std:: cin >> End ;
+    cout << "Enter the interval " << ;
+    std:: cin >> Interval ;
+    cout << "Enter the x " << ;
+    std:: cin >> x ;
+    
+    print(Begin, End, Interval, x, y);
+    print(Begin, End, Interval, x, test);
+}
