@@ -1,13 +1,13 @@
 #include "Header.h"
 #include <iostream>
 
-void print(double Begin, double End, double Interval, double x, func s)
+void print(double Begin, double End, double Interval, double x, func m)
 {
     int j = 0;
     double* a = new double[double((End - Begin) / Interval) + 1];
     for (int i = Begin; i <= End; i += Interval)
     {
-        a[j] = s(i, x);
+        a[j] = m(i, x);
         J++;
     }
     std::cout << std::endl;
