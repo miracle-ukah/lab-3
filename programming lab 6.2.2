@@ -1,0 +1,17 @@
+#include "Header.h"
+#include <iostream>
+#include <cmath>
+
+double maxRoot(func f, int Begin, int End, int Step, int n)
+{
+    double max = f(Begin, n);
+    for (double i = Begin; i <= End; i += Step)
+    {
+        double maxx = f(i,n);
+        if(maxx > max)
+        {
+            max = maxx;
+        }
+    }
+    return max;
+}
