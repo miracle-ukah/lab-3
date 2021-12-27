@@ -1,0 +1,29 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main()
+{
+    int inNumber, inInt, minInt, maxInt, x;
+    
+    minInt = INT_MAX;
+    maxInt = INT_MIN;
+    std::cout << "How Many Numbers do you want to inputs?" << std::endl;
+    cin >> inNumber;
+    cout << "Enter all " << inNumber << " integers." << endl;
+    for (x = 0; x < inNumber; x++)
+    {
+        cin >> inInt;
+        if (inInt > maxInt)
+        {
+            maxInt = inInt;
+        }
+        if (inInt < minInt)
+        {
+            minInt = inInt;
+        }
+        cout << "min:" << minInt << endl;
+        cout << "max:" << maxInt << endl;
+    }
+    return 0;
+}
