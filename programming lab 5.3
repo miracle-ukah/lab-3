@@ -11,12 +11,12 @@ struct Link
     Link* next;
 };
 
-double* readFromFile(const char* Numbers, int& count)
+double* readFromFile(const char* NumberFile, int& count)
 {
     Link* first = 0;
     Link* last = 0;
     Link* link;
-    ifstream in(Numbers);
+    ifstream in(NumberFile);
     double d;
     count = 0;
     while (in >> d)
@@ -54,10 +54,10 @@ double* readFromFile(const char* Numbers, int& count)
 void  outToFile(const char* filename, int** a, int m, int n)
 {
     ofstream out;
-    out.open("results.txt");
+    out.open("result.txt");
     if (out)
     {
-        out << "Source array:" << endl;
+        out << "Source:" << endl;
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
@@ -76,7 +76,7 @@ void  outToFile(const char* filename, int** a, int m, int n)
                 }
             }
         }
-        out << "Step One(All items with even values should be tripled): " << endl;
+        out << "Step One - items with even values are tripled: " << endl;
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
@@ -86,7 +86,7 @@ void  outToFile(const char* filename, int** a, int m, int n)
             out << endl;
         }
         out << endl;
-        double b[3]; // step two
+        double b[3];
         for (int i = 0; i < m; i++)
         {
             static int r = 0, c = 0;
@@ -94,13 +94,13 @@ void  outToFile(const char* filename, int** a, int m, int n)
             r++;
             c++;
         }
-        out << "Step Two(Cubic roots of diagonal items):" << endl;
+        out << "Step Two - cube root of diagonal items:" << endl;
         for (int i = 0; i < m; i++)
         {
             double ptr = b[i];
-            
+
             out << '\t' << std::
-            cbrt(ptr);
+                cbrt(ptr);
         }
     }
     else
@@ -113,17 +113,17 @@ int main()
 {
     const int n = 3;
     int count = 0;
-    double* arr = readFromFile("Numbers.txt", count); //to read the integers in the text file
+    double* arr = readFromFile("NumberFile.txt", count);
 
-    ifstream in("Numbers.txt"); // to calculate the number of rows
+    ifstream in("NumberFile.txt");
     int x, r = 0;
     while (in >> x)
     {
         r++;
     }
-    int m = r / n;
+    int m = (r / n);
 
-    int** a = new int* [m]; //creation of a 2d array in free store
+    int** a = new int* [m];
     for (int i = 0; i < m; i++)
     {
         a[i] = new int[n];
@@ -136,19 +136,19 @@ int main()
         }
     }
 
-    for (int i = 0; i < m; i++) //filling the 2d array with the integers from the txt file
+    for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            static int g = 0;
-            a[i][j] = arr[g];
-            g++;
+            static int f = 0;
+            a[i][j] = arr[f];
+            f++;
         }
     }
 
-    outToFile("results.txt", a, m, n); //storing results in a new file
+    outToFile("results.txt", a, m, n);
 
-    delete[] arr; //removing all arrays created in free store
+    delete[] arr;
     for (int i = 0; i < m; i++)
     {
         delete[] a[i];
