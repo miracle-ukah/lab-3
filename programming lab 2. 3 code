@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double x, y = 1;
+    int i, k, n;
+    cout << "enter x, n:" << endl;
+    cin >> x >> n;
+    
+    k = 1;
+    for (i = 1; i <= (2 * n); i++)
+    {
+        y *= (x + (i * k));
+        k = -k;
+    }
+    
+    cout << "y = " << y << endl;
+    
+    return 0;
+}
