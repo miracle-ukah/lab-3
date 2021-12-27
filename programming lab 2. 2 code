@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i, k, n;
+    double x, y = 0;
+    cout << "enter x, n, k:" << endl;
+    cin >> x >> n >> k;
+    
+    if (x ==- 2)
+    {
+        cout << "error";
+        return 1;
+    }
+    for (i = 1; i <= n; i++)
+    {
+        if (i != k)
+        {
+            y += i / (x + (2 * i));
+        }
+    }
+    cout << "y = " << y <<  endl;
+    
+    return 0;
+}
