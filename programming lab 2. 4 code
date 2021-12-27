@@ -1,0 +1,23 @@
+#include <iostream>
+
+#include <cmath>
+using namespace std;
+
+
+int main()
+{
+    double sum = 1, eps, y = 0;
+    int i = 1;
+    cout << "input eps: " << endl;
+    cin >> eps;
+    sum = 1 / (pow(2, i));
+    while (sum > eps)
+    {
+        y += sum;
+        i++;
+        sum = 1.0 / (pow(2, i));
+    }
+    
+    cout << "y = " << y << endl;
+    return 0;
+}
