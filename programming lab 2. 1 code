@@ -1,0 +1,52 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    double a, b, c;
+    cout << "Enter a, b, c: " << endl;
+    cin >>a>>b>>c;
+    if (a == 0)
+    {
+        if (b == 0)
+        {
+            if (c == 0)
+            {
+                cout << "infinite count of roots" << endl;
+            }
+            else
+            {
+                cout << "No roots." << endl;
+            }
+        }
+        else
+        {
+            double x = -c / b;
+            cout << "x = " << x << endl;
+        }
+    }
+    else
+    {
+        float d = (b * b) - (4 * a * c);
+        if (d < 0)
+        {
+            cout << "error roots are _Imaginary (no roots" << endl;
+        }
+        else if (d == 0)
+        {
+            double x = -b / (2 * a);
+            cout << "Roots are real and equal. " << endl;
+            cout << "root is " << x << "twice." << endl;
+        }
+        else
+        {
+            float x1 = (-b + sqrt(d)) / (2 * a);
+            float x2 = (-b - sqrt(d)) / (2 * a);
+            cout << "Roots are real. " << endl;
+            cout << "Roots are " << x1 << " and " << x2 << "." << endl;
+        }
+    }
+    return 0;
+    
+}
