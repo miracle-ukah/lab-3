@@ -1,19 +1,21 @@
+Main code
+
 #include <iostream>
 #include "Header.h"
 #include <math.h>
 
 using namespace std;
 
-double test(int x, int n)
+double tst(int x, int n)
 {
     return pow(x, 2) + x + n;
 }
-double y(int x, int n)
+double yFunc(int x, int n)
 {
     double y = 0;
     if (x <= 0)
     {
-        for (double i = 2; j <= (n - 1); i++)
+        for (double i = 2; i <= (n - 1); i++)
         {
             y += (x - i) / i;
         }
@@ -35,15 +37,15 @@ double y(int x, int n)
 int main()
 {
     double Begin, End, Interval, x;
-    cout << "Enter the beginning " << ;
-    std:: cin >> Begin ;
-    cout << "Enter the end " << ;
-    std:: cin >> End ;
-    cout << "Enter the interval " << ;
-    std:: cin >> Interval ;
-    cout << "Enter the x " << ;
-    std:: cin >> x ;
-    
-    print(Begin, End, Interval, x, y);
-    print(Begin, End, Interval, x, test);
+    cout << "Enter the beginning " << endl;
+    std::cin >> Begin;
+    cout << "Enter the end " << endl;
+    std::cin >> End;
+    cout << "Enter the interval " << endl;
+    std::cin >> Interval;
+    cout << "Enter the x " << endl;
+    std::cin >> x;
+
+    print(Begin, End, Interval, x, yFunc);
+    print(Begin, End, Interval, x, tst);
 }
