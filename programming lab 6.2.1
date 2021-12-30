@@ -3,12 +3,12 @@
 #include "Header.h"
 using namespace std;
 
-double func1(int x, int n)
+double function1(int x, int n)
 {
     double s, y = 0;
     if (x <= 0)
     {
-        for(int i = 2; i <= (n - 1); i++)
+        for (int i = 2; i <= (n - 1); i++)
         {
             y += (x - 1) / i;
         }
@@ -28,29 +28,26 @@ double func1(int x, int n)
     return y;
 }
 
-double func2(int x, int n)
+double function2(int x, int n)
 {
-    double ans = ((pow(x,4)) - (pow(x,2)) - x + n);
-    return ans;
+    double root = ((pow(x, 4)) - (pow(x, 2)) - x + n);
+    return root;
 }
 
 int main()
 {
-    int Begin, End, Step, x, n;
+    int Begin, Stop, Step, x, n;
     cout << "Begin: ";
     cin >> Begin;
-    cout << "End: ";
-    cin >> End ;
+    cout << "Stop: ";
+    cin >> Stop;
     cout << "Step: ";
     cin >> Step;
     cout << "n (n > 3): ";
     cin >> n;
-    
-    cout << "the greatest root is (function 1): "
-    << maxRoot(func1, Begin, End, n) << endl;
-    
-    cout << "the greatest root is (function 2): "
-    << maxRoot(func2, Begin, End, n) << endl;
-    
+
+    cout << "the greatest root is (function 1): " << greatestRoot(function1, Begin, Stop, Step, n) << endl;
+    cout << "the greatest root is (function 2): " << greatestRoot(function2, Begin, Stop, Step, n) << endl;
+
     return 0;
 }
