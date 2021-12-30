@@ -2,15 +2,15 @@
 #include <iostream>
 #include <cmath>
 
-double maxRoot(func f, int Begin, int End, int Step, int n)
+double greatestRoot(func f, int Begin, int Stop, int Step, int n)
 {
     double max = f(Begin, n);
-    for (double i = Begin; i <= End; i += Step)
+    for (double i = Begin; i <= Stop; i += Step)
     {
-        double maxx = f(i,n);
-        if(maxx > max)
+        double bigger = f(i, n);
+        if (bigger > max)
         {
-            max = maxx;
+            max = bigger;
         }
     }
     return max;
